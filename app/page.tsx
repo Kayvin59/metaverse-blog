@@ -5,8 +5,8 @@ export default async function Home() {
   const data: BlogPost[] = await getData();
 
   return (
-    <main className="flex min-h-screen flex-col items-center p-5">
-      <h1 className="text-3xl underline font-bold mb-8">Metaverse Blog</h1>
+    <main className="flex min-h-screen max-w-5xl flex-col items-center mx-auto my-0 p-5 font-roboto">
+      <h1 className="text-4xl underline font-bold mb-8 font-cambria">Metaverse Blog</h1>
       <PostList posts={data} />
     </main>
   )
