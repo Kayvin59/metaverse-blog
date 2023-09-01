@@ -16,7 +16,7 @@ export default function PostDetails({ params }: { params: { id: string } }) {
           <ChevronLeft />
           Home
         </Link>
-        <h1 className="text-4xl underline font-bold mb-8 font-cambria">{postDetails.title}</h1>
+        <h1 className="text-4xl font-bold mb-8 font-cambria">{postDetails.title}</h1>
         <p className='mb-8'>{postDetails.body}</p>
         <div className='flex justify-between w-full'>
           <span>Written by: {postDetails.author}</span>
