@@ -1,5 +1,6 @@
-import { postsData } from '@/data';
 import Link from 'next/link';
+import { postsData } from '@/data';
+import { ChevronLeft } from 'lucide-react';
 
 export default function PostDetails({ params }: { params: { id: string } }) {
     const postId = params.id;
@@ -11,7 +12,10 @@ export default function PostDetails({ params }: { params: { id: string } }) {
 
     return (
       <div className="flex min-h-screen max-w-5xl flex-col items-center mx-auto my-0 p-5 font-roboto">
-        <Link href='/' className='flex self-start underline'>Back to home</Link>
+        <Link href='/' className='flex self-start mb-5 underline'>
+          <ChevronLeft />
+          Home
+        </Link>
         <h1 className="text-4xl underline font-bold mb-8 font-cambria">{postDetails.title}</h1>
         <p className='mb-8'>{postDetails.body}</p>
         <div className='flex justify-between w-full'>
