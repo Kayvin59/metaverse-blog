@@ -1,5 +1,5 @@
 type BlogPost = {
-    id: number
+    id: string
     author: string
     title: string
     body: string
