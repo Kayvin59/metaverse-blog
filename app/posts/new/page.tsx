@@ -2,17 +2,18 @@
 
 import { useState } from "react"
 
+import Link from "next/link"
 import InputField from "@/components/InputField"
 import { Button } from "@/components/ui/button"
 import { CheckCircle2, ChevronLeft } from "lucide-react"
-import Link from "next/link"
-
+import { generateFormattedDate } from '@/utils/formatDate';
 export default function NewPost() {
 
     const [formData, setFormData] = useState({
         title: "",
         post: "",
-        author: ""
+        author: "",
+        published: ""
     })
     const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -23,13 +24,15 @@ export default function NewPost() {
     }
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
+        const currentDate = new Date();
+        const formattedDate = generateFormattedDate(currentDate.toLocaleDateString("en-US"));
+        
+        setFormData((prevFormData) => ({
+            ...prevFormData,
+            published: formattedDate,
+        }));
         console.log("formData:", formData)
         setIsSubmitted(true);
-        setFormData({
-            title: "",
-            post: "",
-            author: ""
-        })
     }
 
     return (

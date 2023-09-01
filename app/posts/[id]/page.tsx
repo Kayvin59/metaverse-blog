@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { postsData } from '@/data';
-import { ChevronLeft } from 'lucide-react';
+import { Calendar, ChevronLeft, FileSignature } from 'lucide-react';
+import { generateFormattedDate } from '@/utils/formatDate';
 
 export default function PostDetails({ params }: { params: { id: string } }) {
     const postId = params.id;
@@ -19,8 +20,14 @@ export default function PostDetails({ params }: { params: { id: string } }) {
         <h1 className="text-4xl font-bold mb-8 font-cambria">{postDetails.title}</h1>
         <p className='mb-8'>{postDetails.body}</p>
         <div className='flex justify-between w-full'>
-          <span>Written by: {postDetails.author}</span>
-          <span>Published: {/* {postDetails.published} */}</span>
+          <div className='flex h-fit text-muted-foreground'>
+            <FileSignature className='mr-2'/> 
+            <span>{postDetails.author}</span>
+          </div>
+          <div className='flex h-fit text-muted-foreground'>
+            <Calendar className='mr-2'/> 
+            <span>{generateFormattedDate(postDetails.published)}</span>
+          </div>
         </div>
       </div>
 
