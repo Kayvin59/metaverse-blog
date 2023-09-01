@@ -3,10 +3,11 @@
 import { useState } from "react"
 
 import Link from "next/link"
+
 import InputField from "@/components/InputField"
 import { Button } from "@/components/ui/button"
-import { CheckCircle2, ChevronLeft } from "lucide-react"
 import { generateFormattedDate } from '@/utils/formatDate';
+import { CheckCircle2, ChevronLeft } from "lucide-react"
 export default function NewPost() {
 
     const [formData, setFormData] = useState({

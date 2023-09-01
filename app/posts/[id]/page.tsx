@@ -1,7 +1,8 @@
 import Link from 'next/link';
+
 import { postsData } from '@/data';
-import { Calendar, ChevronLeft, FileSignature } from 'lucide-react';
 import { generateFormattedDate } from '@/utils/formatDate';
+import { Calendar, ChevronLeft, FileSignature } from 'lucide-react';
 
 export default function PostDetails({ params }: { params: { id: string } }) {
     const postId = params.id;
