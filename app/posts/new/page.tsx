@@ -2,11 +2,10 @@
 
 import { useState } from "react"
 
-import { Label } from "@/components/ui/label"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
+import InputField from "@/components/InputField"
 import { Button } from "@/components/ui/button"
-import { CheckCircle2 } from "lucide-react"
+import { CheckCircle2, ChevronLeft } from "lucide-react"
+import Link from "next/link"
 
 export default function NewPost() {
 
@@ -35,20 +34,15 @@ export default function NewPost() {
 
     return (
         <div className="flex min-h-screen max-w-5xl flex-col items-center mx-auto my-0 p-5 font-roboto">
+            <Link href='/' className='flex self-start mb-5 underline'>
+                <ChevronLeft />
+                Home
+            </Link>
             <h1 className="text-4xl font-bold mb-8 font-cambria">Add New Post</h1>
             <form className="w-80" onSubmit={handleSubmit}>
-                <div className="grid w-full max-w-lg items-center mb-5 gap-1.5">
-                    <Label htmlFor="title">Title:</Label>
-                    <Input type="text" className="bg-card" id="title" name="title" placeholder="Enter title here" value={formData.title} onChange={handleChange}/>
-                </div>
-                <div className="grid w-full max-w-lg items-center mb-5 gap-1.5">
-                    <Label htmlFor="post">Your Post:</Label>
-                    <Textarea id="post" className="bg-card" name="post" placeholder="This is the content of your post." value={formData.post} onChange={handleChange}/>
-                </div>
-                <div className="grid w-full max-w-lg items-center mb-5 gap-1.5">
-                    <Label htmlFor="author">Signature:</Label>
-                    <Input type="text" className="bg-card" id="author" name="author" placeholder="Enter your full name" value={formData.author} onChange={handleChange}/>
-                </div>
+                <InputField type="text" id="title" name="title" label="Title" placeholder="Enter title here" value={formData.title} onChange={handleChange}/>
+                <InputField type="textarea" id="post" name="post" label="Your Post" placeholder="This is the content of your post." value={formData.post} onChange={handleChange}/>
+                <InputField type="text" id="author" name="author" label="Signature" placeholder="Enter your full name" value={formData.author} onChange={handleChange}/>
                 <Button className="w-full" type="submit">Send your post</Button>
             </form>
             {isSubmitted && 
